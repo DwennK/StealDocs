@@ -21,27 +21,35 @@ namespace StealDocs
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public string strBasePath;
+        public string strUsername;
+        public string strNumeroPoste;
+        public string strWord;
+        public string sourceDirectory;
+        public string targetDirectory;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            /// Variables Globales
+            /// </summary>
         }
 
         /// <summary>
-        /// Variables Globales
-        /// </summary>
-        public static string strBasePath = @"\\LMB-212-01\";
-        public static string strUserPath = getUserPath();
-        public static string strNumeroPoste;
-        public static string strWord = @"\AppData\Roaming\Microsoft\Word\";
-        public static string sourceDirectory = strBasePath + @"\c$\Users\" + strUserPath + strWord;
-        public static string targetDirectory = @"C:\temp\destination";
+
 
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            setUserPathAndNumerPoste();
+            strBasePath = @"\\LMB-212-0";
+            strWord = @"\AppData\Roaming\Microsoft\Word\";
+            sourceDirectory = strBasePath+ strNumeroPoste + @"\c$\Users\" + strUsername + strWord;
+            targetDirectory = @"C:\temp\destination";
+
+
             Copy(sourceDirectory, targetDirectory);
         }
 
@@ -73,9 +81,9 @@ namespace StealDocs
             }
         }
 
-        public void getUserPath()
+        public void setUserPathAndNumerPoste()
         {
-            String UserPath = (String)User.SelectedItem.ToString();
+            String UserPath = User.Text;
             String NumeroPoste = "1";
 
             switch (UserPath)
@@ -115,7 +123,7 @@ namespace StealDocs
             }
 
 
-            strUserPath = UserPath;
+            strUsername = UserPath;
             strNumeroPoste = NumeroPoste;
         }
     }
