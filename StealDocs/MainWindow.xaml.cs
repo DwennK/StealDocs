@@ -21,16 +21,27 @@ namespace StealDocs
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Variables Globales
+        /// </summary>
+        public static string strBasePath = @"\\LMB-212-01\";
+        public static string strUserPath = getUserPath();
+        public static string strNumeroPoste;
+        public static string strWord = @"\AppData\Roaming\Microsoft\Word\";
+        public static string sourceDirectory = strBasePath + @"\c$\Users\" + strUserPath + strWord;
+        public static string targetDirectory = @"C:\temp\destination";
+
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string sourceDirectory = @"C:\temp\source";
-            string targetDirectory = @"C:\temp\destination";
-
             Copy(sourceDirectory, targetDirectory);
         }
 
@@ -62,32 +73,50 @@ namespace StealDocs
             }
         }
 
-        public string getUserPath()
+        public void getUserPath()
         {
-            String UserPath = "";
+            String UserPath = (String)User.SelectedItem.ToString();
+            String NumeroPoste = "1";
 
-            switch (User.Items.CurrentItem)
+            switch (UserPath)
             {
-                case "Thierry": UserPath = "schedert";
+                case "Thierry":
+                        UserPath = "schedert";
+                        NumeroPoste = "1";
                     break;
-                case "Achilles": UserPath = "gontrana";
+                case "Achilles":
+                        UserPath = "gontrana";
+                        NumeroPoste = "2";
                     break;
-                case "Remy": UserPath = "zimmermannr";
+                case "Remy":
+                        UserPath = "zimmermannr";
+                        NumeroPoste = "4";
                     break;
-                case "Maxence": UserPath = "benderm";
+                case "Maxence":
+                        UserPath = "benderm";
+                        NumeroPoste = "5";
                     break;
-                case "Dwenn": UserPath = "kaufmanndw";
+                case "Dwenn":
+                        UserPath = "kaufmanndw";
+                        NumeroPoste = "6";
                     break;
-                case "Mehmet": UserPath = "onganm";
+                case "Mehmet":
+                        UserPath = "onganm";
+                        NumeroPoste = "7";
                     break;
-                case "Dilane": UserPath = "rodriguesD";
+                case "Dilane":
+                        UserPath = "rodriguesD";
+                        NumeroPoste = "8";
                     break;
-                default: UserPath = "%USERNAME%";
+                default:
+                        UserPath = "kaufmanndw";
+                        NumeroPoste = "6";
                     break;
             }
- 
 
-            return UserPath;
+
+            strUserPath = UserPath;
+            strNumeroPoste = NumeroPoste;
         }
     }
 }
