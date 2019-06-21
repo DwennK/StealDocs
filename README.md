@@ -9,7 +9,7 @@ Step 1. Place a copy the .asd file into the unsaved files folder
 Currently it can only steal them at .asd format, so you have to manually convert them to .docx using the steps below :
 
 `
-C:\Users\\%username%\AppData\Local\Microsoft\Office\UnsavedFiles.
+C:\Users\%username%\AppData\Local\Microsoft\Office\UnsavedFiles.
 `
 
 
