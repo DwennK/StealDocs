@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace StealDocs
             strBasePath = @"\\LMB-212-0";
             strWord = @"\AppData\Roaming\Microsoft\Word\";
             sourceDirectory = strBasePath+ strNumeroPoste + @"\c$\Users\" + strUsername + strWord;
-            targetDirectory = @"C:\temp\destination";
+            targetDirectory = getDestinationFolder();
 
 
             Copy(sourceDirectory, targetDirectory);
@@ -125,6 +126,21 @@ namespace StealDocs
 
             strUsername = UserPath;
             strNumeroPoste = NumeroPoste;
+        }
+
+        private void btnOpenDestinationFolder_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(getDestinationFolder());
+        }
+
+        private string getDestinationFolder()
+        {
+            string userName = Environment.UserName;
+            string chemin1 = @"C:/Users/";
+            string chemin2 = @"/AppData/Local/Microsoft/Office/UnsavedFiles";
+            string cheminFinal = chemin1 + userName + chemin2;
+
+            return cheminFinal;
         }
     }
 }
