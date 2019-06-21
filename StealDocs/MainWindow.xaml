@@ -16,8 +16,8 @@
             <ComboBoxItem Content="Mehmet"/>
             <ComboBoxItem Content="Dilane"/>
         </ComboBox>
-        <Button Content="Go" HorizontalAlignment="Left" Margin="264,27,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
-        <Button Content="Go for all users" HorizontalAlignment="Left" Margin="264,66,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+        <Button Content="Steal" HorizontalAlignment="Left" Margin="264,27,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+        <Button Content="Steal to all users" HorizontalAlignment="Left" Margin="264,66,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
         <Button x:Name="btnOpenDestinationFolder" Content="Open destination folder" HorizontalAlignment="Left" Margin="232,126,0,0" VerticalAlignment="Top" Width="140" Click="btnOpenDestinationFolder_Click"/>
         <TextBox x:Name="tbxPath" HorizontalAlignment="Left" Height="18" Margin="10,126,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="198"/>
     </Grid>
