@@ -8,4 +8,5 @@ Currently it can only steal them at .asd format, so you have to place them in th
 `
 C:\Users\%username%\AppData\Local\Microsoft\Office\UnsavedFiles.
 `
+
 otherwise it's impossible to open then without converting them to .docx
