@@ -4,10 +4,8 @@ Currently it can only steal them at .asd format, so you have to manually convert
 
 
 ### Recover .asd Files from Unsaved Files Folder
-
-Step 1. Place a copy the .asd file into the unsaved files folder 
-Currently it can only steal them at .asd format, so you have to place them in the folder below, otherwise it's impossible to open then without converting them to .docx
-
+Currently it can only steal them at .asd format, so you have to place them in the folder below:
 `
 C:\Users\%username%\AppData\Local\Microsoft\Office\UnsavedFiles.
 `
+otherwise it's impossible to open then without converting them to .docx
